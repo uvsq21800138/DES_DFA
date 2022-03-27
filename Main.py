@@ -172,10 +172,10 @@ def methode_K():
 	for i in range(int(math.pow(2,int(6)))):
 		k = format(i,"b")
 		k = SB.taille(k,6)
-		for c in Ihex:
-			for n in range(8) :
+		for n in range(8) :
+			RxK = SB.str_xor(JRi[n],k)
+			for c in Ihex:
 				if FI[c][n] != "":
-					RxK = SB.str_xor(JRi[n],k)
 					RxKxF = SB.str_xor(RxK,FI[c][n])
 					# Gi(f,k)
 					sbi = SB.str_xor(DES.Sbox(n,RxK),DES.Sbox(n,RxKxF))
